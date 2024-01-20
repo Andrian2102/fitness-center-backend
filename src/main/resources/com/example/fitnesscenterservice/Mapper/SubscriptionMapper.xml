@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.fitnesscenterservice.Mapper.SubscriptionMapper">
+    <select id="getAllMenu" resultType="com.example.fitnesscenterservice.Model.Menu">
+        SELECT *
+        FROM PUBLIC.MENU
+    </select>
+    <insert id="createNewSubscription" parameterType="com.example.fitnesscenterservice.Model.Subscription">
+        INSERT INTO PUBLIC.SUBSCRIPTION
+        (USER_ID,
+        MENU_ID,
+        STATUS,
+        PERTEMUAN)
+        VALUES
+        (#{userId},
+        #{menuId},
+        #{status},
+        #{pertemuan})
+    </insert>
+    <select id="getSubscription" resultType="com.example.fitnesscenterservice.Model.Subscription">
+        SELECT *
+        FROM PUBLIC.SUBSCRIPTION
+        WHERE SUBSCRIPTION_ID = #{subscriptionId}
+    </select>
+</mapper>

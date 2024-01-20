@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.fitnesscenterservice.Mapper.RegistrationMapper">
+<select id="getEmail" resultType="java.lang.String">
+    SELECT EMAIL
+    FROM PUBLIC.USERS
+    WHERE EMAIL = #{email}
+</select>
+    <insert id="insertDataUser" parameterType="com.example.fitnesscenterservice.Model.User">
+        INSERT INTO PUBLIC.USERS
+        (USER_ID,
+        NAMA,
+        EMAIL,
+        PASSWORD,
+        NO_HANDPHONE,
+        STATUS) VALUES
+        (#{userId},
+        #{nama},
+        #{email},
+        #{password},
+        #{noHandphone},
+        #{status})
+    </insert>
+    <select id="getStatus" resultType="java.lang.String">
+        SELECT STATUS
+        FROM PUBLIC.USERS
+        WHERE EMAIL = #{email}
+    </select>
+    <insert id="insertDataKredit" parameterType="com.example.fitnesscenterservice.Model.CreditCard">
+        INSERT INTO PUBLIC.USERS
+        (CREDIT_CARD_ID,
+        USER_ID,
+        NOMOR_KARTU,
+        CCV,
+        EXPIRED_DATE,
+        NAMA_PENGGUNA) VALUES
+        (#{creditCardID
+        #{userId},
+        #{nomorKartu},
+        #{ccv},
+        #{expiredDate},
+        #{namaPengguna})
+    </insert>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.fitnesscenterservice.Mapper.InfoSubscriptionMapper">
+    <select id="getDataUser" resultType="com.example.fitnesscenterservice.Model.User">
+        SELECT *
+        FROM PUBLIC.USERS
+        WHERE user_id = #{userId}
+    </select>
+    <select id="getCreditCard" resultType="com.example.fitnesscenterservice.Model.CreditCard">
+        SELECT *
+        FROM PUBLIC.CREDIT_CARD
+        WHERE CREDIT_CARD_ID = #{creditCardId}
+    </select>
+    <update id="updateDataUser" parameterType="com.example.fitnesscenterservice.Model.User">
+        UPDATE PUBLIC.USERS SET
+        NAMA = #{nama}
+        PASSWORD = #{password}
+        WHERE user_id = #{userId}
+    </update>
+    <update id="updateDataKredit" parameterType="com.example.fitnesscenterservice.Model.CreditCard">
+        UPDATE PUBLIC.CREDIT_CARD SET
+        NOMOR_KARTU = #{nomorKartu},
+        CCV = #{ccv},
+        EXPIRED_DATE = #{expiredDate},
+        NAMA_PENGGUNA = #{namaPengguna}
+        WHERE CREDIT_CARD_ID = #{creditCardId}
+    </update>
+</mapper>

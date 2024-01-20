@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.fitnesscenterservice.Mapper.PaymentMapper">
+    <select id="getPaymentInfo" resultType="com.example.fitnesscenterservice.Model.Subscription">
+        SELECT *
+        FROM PUBLIC.SUBSCRIPTION
+        WHERE SUBSCRIPTION_ID = #{subscriptionId}
+    </select>
+    <update id="updatePayment">
+        UPDATE PUBLIC.SUBSCRIPTION SET
+        STATUS = #{status}
+        WHERE SUBSCRIPTION = #{subscriptionId}
+    </update>
+</mapper>
