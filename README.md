@@ -1,0 +1,1 @@
+Migration DB for postgresql = src/main/resources/db/migration/postgresql
